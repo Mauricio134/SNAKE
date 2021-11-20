@@ -34,3 +34,34 @@
 1637363075 source:c:\users\usuario\desktop\snake\menu.cpp
 	"Menu.h"
 
+1637375655 source:c:\users\usuario\git\snake\jugador.cpp
+	"Jugador.h"
+	"Tablero.h"
+
+1637375680 c:\users\usuario\git\snake\jugador.h
+	<iostream>
+	<conio.h>
+
+1637375683 c:\users\usuario\git\snake\tablero.h
+	<iostream>
+	<stdlib.h>
+	<conio.h>
+	"Jugador.h"
+	"Menu.h"
+
+1637362743 c:\users\usuario\git\snake\menu.h
+	<iostream>
+	<conio.h>
+
+1637375694 source:c:\users\usuario\git\snake\main.cpp
+	"Tablero.h"
+	"Menu.h"
+
+1637247860 c:\users\usuario\git\snake\funcion.h
+
+1637375667 source:c:\users\usuario\git\snake\tablero.cpp
+	"Tablero.h"
+
+1637363075 source:c:\users\usuario\git\snake\menu.cpp
+	"Menu.h"
+

@@ -10,18 +10,19 @@ using namespace std;
 class Tablero{
     public:
         char **pantalla;
-        char **obstaculo;
         int nFilas, nColumnas;
         Jugador jugador1;
         Jugador jugador2;
         char jug1, jug2;
         char a;
         int Time;
+        int dira, dirb;
 
         Tablero();
 
         void tablero();
         void inicio();
+        void posicion();
         bool LOSE();
 };
 

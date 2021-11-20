@@ -11,6 +11,8 @@ Tablero::Tablero()
 	jug1 = jugador1.jugador();
 	jug2 = jugador2.jugador();
     a = ' ';
+    dira = 0;
+    dirb = 0;
 }
 
 void Tablero::tablero()
@@ -22,6 +24,7 @@ void Tablero::tablero()
     }
     Time++;
     jugador1.Timer = Time;
+    jugador2.Timer = Time;
 
     for(int i=0; i<nFilas; i++){
         for(int j=0; j<nColumnas; j++){
@@ -55,13 +58,13 @@ void Tablero::tablero()
 
 			for (int k = 0; k < jugador1.nTail; k++) {
 				if (jugador1.tailX[k] == j && jugador1.tailY[k] == i) {
-					a = '@';
+					a = '+';
 				}
 			}
 
-			for (int m = 0; m < jugador1.nTail; m++) {
+			for (int m = 0; m < jugador2.nTail; m++) {
 				if (jugador2.tailX[m] == j && jugador2.tailY[m] == i) {
-					a = '@';
+					a = 'o';
 				}
 			}
 
@@ -70,9 +73,75 @@ void Tablero::tablero()
         }
         cout << endl;
     }
-    delete[]pantalla;
     cout << "Gusano 1 ( " << jugador1.x << " , " << jugador1.y << " )";
     cout << "    " << "Gusano 2 ( " << jugador2.x << " , " << jugador2.y << " )";
+    delete[]pantalla;
+}
+
+void Tablero::posicion()
+{
+    if (_kbhit())
+	{
+		switch (_getch())
+		{
+            case 'a':
+                dira = 1;
+                break;
+            case 'd':
+                dira = 2;
+                break;
+            case 's':
+                dira = 3;
+                break;
+            case 'w':
+                dira = 4;
+                break;
+            case 'j':
+                dirb = 5;
+                break;
+            case 'l':
+                dirb = 6;
+                break;
+            case 'k':
+                dirb = 7;
+                break;
+            case 'i':
+                dirb = 8;
+                break;
+		}
+	}
+
+	switch (dira)
+    {
+        case 1:
+            jugador1.x--;
+            break;
+        case 2:
+            jugador1.x++;
+            break;
+        case 3:
+            jugador1.y++;
+            break;
+        case 4:
+            jugador1.y--;
+            break;
+    }
+
+    switch (dirb)
+    {
+        case 5:
+            jugador2.x--;
+            break;
+        case 6:
+            jugador2.x++;
+            break;
+        case 7:
+            jugador2.y++;
+            break;
+        case 8:
+            jugador2.y--;
+            break;
+    }
 }
 
 void Tablero::inicio()
