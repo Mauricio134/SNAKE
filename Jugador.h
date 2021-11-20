@@ -6,7 +6,6 @@ using namespace std;
 class Jugador{
     public:
         char jug;
-        int dira, dirb;
         int x, y;
         int gameover;
         int Timer;
@@ -16,8 +15,5 @@ class Jugador{
         Jugador();
 
         char jugador();
-        void posicion();
-        void posicion2();
         void Cola();
-        void Cola2();
 };

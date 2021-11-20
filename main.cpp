@@ -1,12 +1,10 @@
 #include "Tablero.h"
-#include "Funcion.h"
 #include "Menu.h"
 
 using namespace std;
 
 int main() {
     Menu menu;
-    int turn = 1;
     while(menu.CERRAR() == true){
         while(menu.LOSE() == true){
             menu.menu_init();
@@ -16,11 +14,10 @@ int main() {
         tablero.inicio();
         while(tablero.LOSE() == true){
             tablero.tablero();
-			tablero.jugador1.posicion();
+            tablero.jugador2.Cola();
             tablero.jugador1.Cola();
-			tablero.jugador2.posicion2();
-            tablero.jugador2.Cola2();
-  
+            tablero.posicion();
+            tablero.delay();
         }
         while(menu.LOSE() == false){
             menu.menu_final();
