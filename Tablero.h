@@ -10,6 +10,7 @@ using namespace std;
 class Tablero{
     public:
         char **pantalla;
+        char **obstaculos;
         int nFilas, nColumnas;
         Jugador jugador1;
         Jugador jugador2;
