@@ -30,6 +30,7 @@ void Jugador::Cola()
         nTail++;
 	}
 
+
 }
 
 char Jugador::jugador()

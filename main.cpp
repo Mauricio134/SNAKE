@@ -17,6 +17,7 @@ int main() {
             tablero.jugador2.Cola();
             tablero.jugador1.Cola();
             tablero.posicion();
+            tablero.delay();
         }
         while(menu.LOSE() == false){
             menu.menu_final();

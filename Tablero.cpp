@@ -3,6 +3,7 @@
 Tablero::Tablero()
 {
     pantalla = nullptr;
+    obs = nullptr;
     cout<<"Ingrese número de filas: ";
     cin>>nFilas;
     cout<<"Ingrese número de columnas: ";
@@ -13,15 +14,20 @@ Tablero::Tablero()
     a = ' ';
     dira = 0;
     dirb = 0;
+    colision = false;
+    X = 0;
+    Y = 0;
 }
 
 void Tablero::tablero()
 {
-    system("cls");
     pantalla=new char*[nFilas];
+    obs=new char*[nFilas];
     for(int i=0;i<nFilas;i++){
         pantalla[i]=new char[nColumnas];
+        obs[i]=new char[nColumnas];
     }
+    system("cls");
     Time++;
     jugador1.Timer = Time;
     jugador2.Timer = Time;
@@ -68,14 +74,66 @@ void Tablero::tablero()
 				}
 			}
 
+			for (int f = 0; f < jugador1.nTail; f++)
+            {
+                if (jugador1.tailX[f] == jugador2.x && jugador1.tailY[f] == jugador2.y)
+                {
+                    obs[jugador2.y][jugador2.x] = '#';
+                    colision = true;
+                }
+            }
+
+            for (int t = 0; t < jugador2.nTail; t++) {
+                if (jugador2.tailX[t] == jugador1.x && jugador2.tailY[t] == jugador1.y)
+                {
+                    obs[jugador1.y][jugador1.x] = '#';
+                    colision = true;
+                }
+            }
+
+			for (int m = 0; m < nFilas; m++) {
+				for (int n = 0; n < nColumnas; n++) {
+					if (obs[m][n] == '#' && i == m && j == n) {
+						a = '#';
+					}
+				}
+			}
 			pantalla[i][j] = a;
             cout << pantalla[i][j];
         }
         cout << endl;
     }
+
+    if (obs[jugador1.x][jugador1.y] == '#') {
+        jugador1.x = nColumnas/2;
+        jugador1.y = nFilas - 3;
+    }
+
+    if (obs[jugador2.x][jugador2.y] == '#') {
+        jugador2.x = nColumnas/2;
+        jugador2.y = 2;
+    }
     cout << "Gusano 1 ( " << jugador1.x << " , " << jugador1.y << " )";
     cout << "    " << "Gusano 2 ( " << jugador2.x << " , " << jugador2.y << " )";
-    delete[]pantalla;
+    for (int m = 0; m < nFilas; m++) {
+        for (int n = 0; n < nColumnas; n++) {
+            cout << obs[m][n];
+        }
+        cout << endl;
+    }
+    if (colision == true) {
+		for (int e = 0; e < nFilas; e++) {
+			for (int f = 0; f < nColumnas; f++) {
+				if (obs[e][f] == '#') {
+					cout << "\nGusano 1 - ";
+					cout << "Gusano 2";
+					cout << " ---> Chocaron en ( " <<  e<< " , " << f << " )";
+				}
+			}
+		}
+	}
+	delete [] pantalla;
+	delete [] obs;
 }
 
 void Tablero::posicion()
@@ -143,6 +201,15 @@ void Tablero::posicion()
             break;
     }
 }
+
+void Tablero::delay()
+{
+	for (int c = 1; c <= 15000; c++) {
+		for (int d = 1; d <= 15000; d++) {
+		}
+	}
+}
+
 
 void Tablero::inicio()
 {
