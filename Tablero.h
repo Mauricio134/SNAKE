@@ -10,7 +10,7 @@ using namespace std;
 class Tablero{
     public:
         char **pantalla;
-        char **obs;
+        int **obs;
         int nFilas, nColumnas;
         Jugador jugador1;
         Jugador jugador2;
@@ -19,13 +19,15 @@ class Tablero{
         int Time;
         int dira, dirb, X, Y;
         bool colision;
+        int arr[5][2];
+        int sum;
 
         Tablero();
 
         void tablero();
         void inicio();
         void posicion();
-        void obstaculos();
+        void obstaculo();
         void delay();
         bool LOSE();
 };

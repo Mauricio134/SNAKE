@@ -14,9 +14,73 @@ Tablero::Tablero()
     a = ' ';
     dira = 0;
     dirb = 0;
+    X = -1;
+    Y = -1;
     colision = false;
-    X = 0;
-    Y = 0;
+    sum = -1;
+}
+
+void Tablero::obstaculo(){
+    obs=new int*[nFilas];
+    for(int i=0;i<nFilas;i++){
+        obs[i]=new int[nColumnas];
+    }
+
+
+    for (int j = 0; j < nFilas; j++){
+        for (int k = 0; k < nColumnas; k++){
+            obs[j][k] = 0;
+        }
+    }
+
+    for (int f = 0; f < jugador1.nTail; f++)
+    {
+        if (jugador1.tailX[f] == jugador2.x && jugador1.tailY[f] == jugador2.y)
+        {
+            Y = jugador2.y;
+            X = jugador2.x;
+            colision = true;
+            jugador2.x = nColumnas/2;
+            jugador2.y = 2;
+            sum++;
+        }
+        else if (jugador2.tailX[f] == jugador1.x && jugador2.tailY[f] == jugador1.y)
+        {
+            Y = jugador1.y;
+            X = jugador1.x;
+            colision = true;
+            jugador1.x = nColumnas/2;
+            jugador1.y = nFilas - 3;
+            sum++;
+        }
+    }
+    if (sum <= 5){
+        arr[sum][0] = Y;
+        arr[sum][1] = X;
+    }
+
+    for (int j = 0; j < nFilas; j++){
+        for (int k = 0; k < nColumnas; k++){
+            for (int x = 0; x < 5 ; x++){
+                if (j == arr[x][0] && k == arr[x][1]){
+                    obs[j][k] = 1;
+                }
+            }
+        }
+    }
+    for (int a = 0; a<5;a++){
+        if (jugador1.x == arr[a][1] && jugador1.y == arr[a][0]){
+            jugador1.x = nColumnas/2;
+            jugador1.y = nFilas - 3;
+        }
+
+        if (jugador2.x == arr[a][1] && jugador2.y == arr[a][0]) {
+            jugador2.x = nColumnas/2;
+            jugador2.y = 2;
+        }
+
+    }
+    delete [] obs;
 }
 
 void Tablero::inicio()
@@ -30,10 +94,8 @@ void Tablero::inicio()
 void Tablero::tablero()
 {
     pantalla=new char*[nFilas];
-    obs=new char*[nFilas];
     for(int i=0;i<nFilas;i++){
         pantalla[i]=new char[nColumnas];
-        obs[i]=new char[nColumnas];
     }
     system("cls");
     Time++;
@@ -67,7 +129,7 @@ void Tablero::tablero()
 				a = jug2;
 			}
 			else {
-				a = ' ';
+                a = ' ';
 			}
 
 			for (int k = 0; k < jugador1.nTail; k++) {
@@ -82,26 +144,11 @@ void Tablero::tablero()
 				}
 			}
 
-			for (int f = 0; f < jugador1.nTail; f++)
-            {
-                if (jugador1.tailX[f] == jugador2.x && jugador1.tailY[f] == jugador2.y)
-                {
-                    obs[jugador2.y][jugador2.x] = '#';
-                    colision = true;
-                }
-            }
+			obstaculo();
 
-            for (int t = 0; t < jugador2.nTail; t++) {
-                if (jugador2.tailX[t] == jugador1.x && jugador2.tailY[t] == jugador1.y)
-                {
-                    obs[jugador1.y][jugador1.x] = '#';
-                    colision = true;
-                }
-            }
-
-			for (int m = 0; m < nFilas; m++) {
+            for (int m = 0; m < nFilas; m++) {
 				for (int n = 0; n < nColumnas; n++) {
-					if (obs[m][n] == '#' && i == m && j == n) {
+					if (obs[m][n] == 1 && i == m && j == n) {
 						a = '#';
 					}
 				}
@@ -111,37 +158,21 @@ void Tablero::tablero()
         }
         cout << endl;
     }
-
-    if (obs[jugador1.x][jugador1.y] == '#') {
-        jugador1.x = nColumnas/2;
-        jugador1.y = nFilas - 3;
-    }
-
-    if (obs[jugador2.x][jugador2.y] == '#') {
-        jugador2.x = nColumnas/2;
-        jugador2.y = 2;
-    }
     cout << "Gusano 1 ( " << jugador1.x << " , " << jugador1.y << " )";
     cout << "    " << "Gusano 2 ( " << jugador2.x << " , " << jugador2.y << " )";
-    for (int m = 0; m < nFilas; m++) {
-        for (int n = 0; n < nColumnas; n++) {
-            cout << obs[m][n];
-        }
-        cout << endl;
-    }
     if (colision == true) {
 		for (int e = 0; e < nFilas; e++) {
 			for (int f = 0; f < nColumnas; f++) {
-				if (obs[e][f] == '#') {
+				if (obs[e][f] == 1) {
 					cout << "\nGusano 1 - ";
 					cout << "Gusano 2";
-					cout << " ---> Chocaron en ( " <<  e<< " , " << f << " )";
+					cout << " ---> Chocaron en ( " <<  e << " , " << f << " )";
 				}
 			}
 		}
 	}
+	cout << endl;
 	delete [] pantalla;
-	delete [] obs;
 }
 
 void Tablero::posicion()
@@ -225,6 +256,12 @@ void Tablero::inicio()
 	jugador1.y = nFilas - 3;
 	jugador2.x = nColumnas/2;
 	jugador2.y = 2;
+
+    for(int i=0; i < 5; i++){
+        for(int j = 0; j < 2; j++){
+            arr[i][j] = -1;
+        }
+    }
 }
 
 bool Tablero::LOSE()

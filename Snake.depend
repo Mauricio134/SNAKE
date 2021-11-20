@@ -42,7 +42,7 @@
 	<iostream>
 	<conio.h>
 
-1637384321 c:\users\usuario\git\snake\tablero.h
+1637394113 c:\users\usuario\git\snake\tablero.h
 	<iostream>
 	<stdlib.h>
 	<conio.h>
@@ -53,13 +53,13 @@
 	<iostream>
 	<conio.h>
 
-1637383199 source:c:\users\usuario\git\snake\main.cpp
+1637395411 source:c:\users\usuario\git\snake\main.cpp
 	"Tablero.h"
 	"Menu.h"
 
 1637247860 c:\users\usuario\git\snake\funcion.h
 
-1637386793 source:c:\users\usuario\git\snake\tablero.cpp
+1637395371 source:c:\users\usuario\git\snake\tablero.cpp
 	"Tablero.h"
 
 1637363075 source:c:\users\usuario\git\snake\menu.cpp
