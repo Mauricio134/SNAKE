@@ -41,3 +41,28 @@
 	<iostream>
 	<conio.h>
 
+1637376614 source:c:\users\usuario\git\snake\main.cpp
+	"Tablero.h"
+	"Funcion.h"
+	"Menu.h"
+
+1637376614 c:\users\usuario\git\snake\tablero.h
+	<iostream>
+	<stdlib.h>
+	<conio.h>
+	"Jugador.h"
+	"Menu.h"
+
+1637376614 c:\users\usuario\git\snake\jugador.h
+	<iostream>
+	<conio.h>
+
+1637247860 c:\users\usuario\git\snake\funcion.h
+
+1637376614 source:c:\users\usuario\git\snake\tablero.cpp
+	"Tablero.h"
+
+1637376745 source:c:\users\usuario\git\snake\jugador.cpp
+	"Jugador.h"
+	"Tablero.h"
+
