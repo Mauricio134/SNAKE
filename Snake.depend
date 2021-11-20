@@ -1,0 +1,36 @@
+# depslib dependency file v1.0
+1637367874 source:c:\users\usuario\desktop\snake\main.cpp
+	"Tablero.h"
+	"Funcion.h"
+	"Menu.h"
+
+1637367262 c:\users\usuario\desktop\snake\tablero.h
+	<iostream>
+	<stdlib.h>
+	<conio.h>
+	"Jugador.h"
+	"Menu.h"
+
+1637367495 source:c:\users\usuario\desktop\snake\tablero.cpp
+	"Tablero.h"
+
+1637366598 c:\users\usuario\desktop\snake\jugador.h
+	<iostream>
+	<conio.h>
+
+1637366576 source:c:\users\usuario\desktop\snake\jugador.cpp
+	"Jugador.h"
+	"Tablero.h"
+
+1637247966 source:c:\users\usuario\desktop\snake\funcion.cpp
+	"Funcion.h"
+
+1637247860 c:\users\usuario\desktop\snake\funcion.h
+
+1637362743 c:\users\usuario\desktop\snake\menu.h
+	<iostream>
+	<conio.h>
+
+1637363075 source:c:\users\usuario\desktop\snake\menu.cpp
+	"Menu.h"
+
