@@ -34,3 +34,10 @@
 1637363075 source:c:\users\usuario\desktop\snake\menu.cpp
 	"Menu.h"
 
+1637363075 source:c:\users\usuario\git\snake\menu.cpp
+	"Menu.h"
+
+1637362743 c:\users\usuario\git\snake\menu.h
+	<iostream>
+	<conio.h>
+
