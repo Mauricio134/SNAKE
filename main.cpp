@@ -16,10 +16,11 @@ int main() {
         tablero.inicio();
         while(tablero.LOSE() == true){
             tablero.tablero();
-            tablero.jugador2.Cola2();
-            tablero.jugador2.posicion2();
+			tablero.jugador1.posicion();
             tablero.jugador1.Cola();
-            tablero.jugador1.posicion();
+			tablero.jugador2.posicion2();
+            tablero.jugador2.Cola2();
+  
         }
         while(menu.LOSE() == false){
             menu.menu_final();

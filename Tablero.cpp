@@ -13,6 +13,14 @@ Tablero::Tablero()
     a = ' ';
 }
 
+void Tablero::inicio()
+{
+    jugador1.x = nColumnas/2;
+	jugador1.y = nFilas - 3;
+	jugador2.x = nColumnas/2;
+	jugador2.y = 2;
+}
+
 void Tablero::tablero()
 {
     system("cls");
@@ -59,7 +67,7 @@ void Tablero::tablero()
 				}
 			}
 
-			for (int m = 0; m < jugador1.nTail; m++) {
+			for (int m = 0; m < jugador2.nTail; m++) {
 				if (jugador2.tailX[m] == j && jugador2.tailY[m] == i) {
 					a = '@';
 				}
@@ -73,14 +81,6 @@ void Tablero::tablero()
     delete[]pantalla;
     cout << "Gusano 1 ( " << jugador1.x << " , " << jugador1.y << " )";
     cout << "    " << "Gusano 2 ( " << jugador2.x << " , " << jugador2.y << " )";
-}
-
-void Tablero::inicio()
-{
-    jugador1.x = nColumnas/2;
-	jugador1.y = nFilas - 3;
-	jugador2.x = nColumnas/2;
-	jugador2.y = 2;
 }
 
 bool Tablero::LOSE()
