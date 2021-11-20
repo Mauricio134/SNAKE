@@ -4,9 +4,9 @@ Tablero::Tablero()
 {
     pantalla = nullptr;
     obs = nullptr;
-    cout<<"Ingrese número de filas: ";
+    cout<<"Ingrese nÃºmero de filas: ";
     cin>>nFilas;
-    cout<<"Ingrese número de columnas: ";
+    cout<<"Ingrese nÃºmero de columnas: ";
     cin>>nColumnas;
     Time = 0;
 	jug1 = jugador1.jugador();
@@ -17,6 +17,14 @@ Tablero::Tablero()
     colision = false;
     X = 0;
     Y = 0;
+}
+
+void Tablero::inicio()
+{
+    jugador1.x = nColumnas/2;
+	jugador1.y = nFilas - 3;
+	jugador2.x = nColumnas/2;
+	jugador2.y = 2;
 }
 
 void Tablero::tablero()
