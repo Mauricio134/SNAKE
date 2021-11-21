@@ -5,7 +5,7 @@ Menu::Menu(){
     cerrar = 0;
 }
 
-void Menu::menu_final()
+void Menu::menu_final()       // Menú del final de juego que pide presionar tecla pra reiniciar o salir
 {
     system("cls");
     cout << "\n\n\n";
@@ -14,9 +14,9 @@ void Menu::menu_final()
 	cout << "     " << "Presionar [x] para regresar a Menu" << endl;
 	cout << "    " << "Presionar [q] para terminar de jugar" << endl;
 
-	if (_kbhit())
+	if (_kbhit())         // se registra pulsación
 	{
-		switch (_getch())
+		switch (_getch())   // dependiendo del caso se otorgan valores diferentes a las variables
 		{
             case 'x':
                 opcion = 0;
@@ -29,7 +29,7 @@ void Menu::menu_final()
 	}
 }
 
-void Menu::menu_init()
+void Menu::menu_init()  // Menú del comienzo de juego que pide presionar tecla pra iniciar
 {
 	system("cls");
 	cout << "\n\n\n\n";
@@ -37,7 +37,7 @@ void Menu::menu_init()
 	cout << "\n\n";
 	cout << "     " << "Presionar [p] para empezar a jugar" << endl;
 
-	if (_kbhit())
+	if (_kbhit())  // se registra la pulsación para iniciar a jugar
 	{
 		switch (_getch())
 		{
@@ -48,7 +48,7 @@ void Menu::menu_init()
 	}
 }
 
-bool Menu::LOSE()
+bool Menu::LOSE()       //Función que retorna bool para reinicar bucle en main y volver a jugar
 {
     if (opcion == 1)
     {
@@ -57,7 +57,7 @@ bool Menu::LOSE()
     return true;
 }
 
-bool Menu::CERRAR()
+bool Menu::CERRAR()    //Función que retorna bool para reinicar bucle en main y volver a jugar
 {
     if (cerrar == 1)
     {

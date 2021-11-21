@@ -3,8 +3,8 @@
 
 using namespace std;
 
-int main() {
-    Menu menu;
+int main() {  
+    Menu menu;                             //Creación de objeto menu para uso de metodos de clase
     while(menu.CERRAR() == true){
         while(menu.LOSE() == true){
             menu.menu_init();
@@ -13,8 +13,8 @@ int main() {
         Tablero tablero;
         tablero.inicio();
         while(tablero.LOSE() == true){
-            tablero.tablero();
-            tablero.jugador2.Cola();
+            tablero.tablero();            
+            tablero.jugador2.Cola();  
             tablero.jugador1.Cola();
             tablero.posicion();
             tablero.delay();
