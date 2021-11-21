@@ -3,17 +3,17 @@
 #include <conio.h>
 using namespace std;
 
-class Jugador{
+class Jugador{                          // Clase para la construcción de las snakes
     public:
-        char jug;
-        int x, y;
-        int gameover;
-        int Timer;
-        int tailX[100], tailY[100];
-        int nTail;
+        char jug;                       // Clase para la construcción de las snakes
+        int x, y;                       // Variables para la ubicación de la cabeza del snake
+        int gameover;                    
+        int Timer;                      // Contador que funciona con un if para acresentar la cola
+        int tailX[100], tailY[100];     //Arrays que contienen la cola de la snake
+        int nTail;                      // Variable que designa el tamaño de la snake
 
-        Jugador();
+        Jugador();                      // Metodo para construcción
 
-        char jugador();
-        void Cola();
+        char jugador();                 // Metodo para ingresar valor de variable jug
+        void Cola();                    // Metodo que contiene el funcionamiento de la cola
 };

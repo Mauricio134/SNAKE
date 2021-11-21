@@ -1,14 +1,14 @@
 #include "Jugador.h"
 #include "Tablero.h"
 
-Jugador::Jugador()
+Jugador::Jugador()              // Constructor
 {
     jug = ' ';
     gameover = 0;
     nTail = 0;
 };
 
-void Jugador::Cola()
+void Jugador::Cola()           //Lógica de movimiento de cola
 {
     int prevX = tailX[0];
     int prevY = tailY[0];
@@ -25,7 +25,7 @@ void Jugador::Cola()
 		prevY = prev2Y;
 	}
 
-	if (Timer%20 == 0)
+	if (Timer%20 == 0)        //Condicional de incremento de cola con variable Timer 
     {
         nTail++;
 	}
@@ -33,7 +33,7 @@ void Jugador::Cola()
 
 }
 
-char Jugador::jugador()
+char Jugador::jugador()        // Ingreso de caracter para reconocera a la serpiente
 {
     cout << "Elegir icono de jugador: ";
     cin >> jug;
