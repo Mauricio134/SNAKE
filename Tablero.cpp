@@ -18,9 +18,19 @@ Tablero::Tablero()           //Constructor de clase
     Y = -1;
     colision = false;
     sum = -1;
+    jugador1.x = nColumnas/2;
+	jugador1.y = nFilas - 3;
+	jugador2.x = nColumnas/2;
+	jugador2.y = 2;
+
+    for(int i=0; i < 5; i++){
+        for(int j = 0; j < 2; j++){
+            arr[i][j] = -1;
+        }
+    }
 }
 
-void Tablero::obstaculo(){       
+void Tablero::obstaculo(){
     obs=new int*[nFilas];              // Uso de punteros con obs para poder almacenar los obstaculos
     for(int i=0;i<nFilas;i++){
         obs[i]=new int[nColumnas];
@@ -37,7 +47,7 @@ void Tablero::obstaculo(){
     {
         if (jugador1.tailX[f] == jugador2.x && jugador1.tailY[f] == jugador2.y)   //Condicional de choque snake2 con cola de snake1
         {
-            Y = jugador2.y;     //Al chocarse, las coordenadas de la cabeza de snake 2 
+            Y = jugador2.y;     //Al chocarse, las coordenadas de la cabeza de snake 2
             X = jugador2.x;     //se almacenan en las variables X y Y para trabajar co el arr
             colision = true;    // La variable colisión se vuelve true
             jugador2.x = nColumnas/2;  // se transporta snake 2 al punto de partida
@@ -54,7 +64,7 @@ void Tablero::obstaculo(){
             sum++;
         }
     }
-    if (sum <= 5){  // al haber un total de choques menores igual a 5 en el array se almacena las coordenadas del choque 
+    if (sum <= 5){  // al haber un total de choques menores igual a 5 en el array se almacena las coordenadas del choque
         arr[sum][0] = Y;   //Sum funciona para almacenar en orden de choque
         arr[sum][1] = X;
     }
@@ -80,7 +90,7 @@ void Tablero::obstaculo(){
         }
 
     }
-    delete [] obs;  
+    delete [] obs;
 }
 
 void Tablero::inicio()
@@ -158,6 +168,7 @@ void Tablero::tablero()
         }
         cout << endl;
     }
+    cout << sum << endl;
     cout << "Gusano 1 ( " << jugador1.x << " , " << jugador1.y << " )";
     cout << "    " << "Gusano 2 ( " << jugador2.x << " , " << jugador2.y << " )";
     if (colision == true) {   // Condicional con booleano colision para imprimir mensaje en caso de choque
@@ -249,36 +260,17 @@ void Tablero::delay()   //metodo de delay para impresión
 	}
 }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> e18b9e1a8274009ec4dc873907cdde1a1f6135cc
-
-void Tablero::inicio()    // se da valores a los atributos x , y de ambas snakes  y se inicializa array 
-{
-    jugador1.x = nColumnas/2;
-	jugador1.y = nFilas - 3;
-	jugador2.x = nColumnas/2;
-	jugador2.y = 2;
-
-    for(int i=0; i < 5; i++){
-        for(int j = 0; j < 2; j++){
-            arr[i][j] = -1;
-        }
-    }
-}
-
-<<<<<<< HEAD
->>>>>>> dev
-bool Tablero::LOSE()
-=======
 bool Tablero::LOSE()  // Perdida en caso de choque con borde
->>>>>>> e18b9e1a8274009ec4dc873907cdde1a1f6135cc
 {
-    if (jugador1.x == 0 || jugador1.x == nColumnas - 1 || jugador1.y == 0 || jugador1.y == nFilas - 1 || jugador2.x == 0 || jugador2.x == nColumnas - 1 || jugador2.y == 0 || jugador2.y == nFilas - 1)
+    if (jugador2.x == 0 || jugador2.x == nColumnas - 1 || jugador2.y == 0 || jugador2.y == nFilas - 1 || sum >= 5)
     {
+        chb = true;
 		return false;
+	}
+
+	if (jugador1.x == 0 || jugador1.x == nColumnas - 1 || jugador1.y == 0 || jugador1.y == nFilas - 1 || sum >= 5){
+        cha = true;
+        return false;
 	}
     return true;
 }

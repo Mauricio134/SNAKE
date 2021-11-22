@@ -5,12 +5,39 @@ Menu::Menu(){
     cerrar = 0;
 }
 
-void Menu::menu_final()       // Menú del final de juego que pide presionar tecla pra reiniciar o salir
+void Menu::menu_final(int obs[5][2],bool cha, bool chb)       // Menú del final de juego que pide presionar tecla pra reiniciar o salir
 {
     system("cls");
     cout << "\n\n\n";
 	cout << "================ " << "Game Over" << " ==================";
     cout << "\n\n";
+    cout << "\n1) Estadisticas: " << endl;
+	cout << endl;
+
+	cout << "Gusano 1";
+	if (cha == true) {
+		cout << " --> Choco";
+	}
+	else {
+		cout << " --> Intacto";
+	}
+	cout << "    " << "Gusano 2";
+	if (chb == true) {
+		cout << " --> Choco";
+	}
+	else {
+		cout << " --> Intacto";
+	}
+	cout << endl;
+	cout << "2) Colisiones: " << endl;
+
+    for (int e = 0; e < 5; e++) {
+        if (obs[e][0] != -1 && obs[e][1] != -1){
+            cout << "\nGusano 1 - ";
+            cout << "Gusano 2";
+            cout << " ---> Chocaron en ( " << obs[e][0] << " , " << obs[e][1] << " ) \n" << endl;
+        }
+    }
 	cout << "     " << "Presionar [x] para regresar a Menu" << endl;
 	cout << "    " << "Presionar [q] para terminar de jugar" << endl;
 
