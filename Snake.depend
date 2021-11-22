@@ -34,34 +34,45 @@
 1637363075 source:c:\users\usuario\desktop\snake\menu.cpp
 	"Menu.h"
 
-1637387201 source:c:\users\usuario\git\snake\jugador.cpp
-	"Jugador.h"
-	"Tablero.h"
+1637394113 D
 
-1637376892 c:\users\usuario\git\snake\jugador.h
+1637539598 source:c:\users\usuario\git\snake\menu.cpp
+	"Menu.h"
+
+1637539582 c:\users\usuario\git\snake\menu.h
 	<iostream>
 	<conio.h>
 
-1637394113 c:\users\usuario\git\snake\tablero.h
+1637539572 source:c:\users\usuario\git\snake\main.cpp
+	"Tablero.h"
+	"Menu.h"
+
+1637584315 c:\users\usuario\git\snake\tablero.h
 	<iostream>
 	<stdlib.h>
 	<conio.h>
 	"Jugador.h"
 	"Menu.h"
 
-1637362743 c:\users\usuario\git\snake\menu.h
+1637463803 source:c:\users\usuario\git\snake\jugador.cpp
+	"Jugador.h"
+	"Tablero.h"
+
+1637463803 c:\users\usuario\git\snake\jugador.h
 	<iostream>
 	<conio.h>
 
-1637395411 source:c:\users\usuario\git\snake\main.cpp
-	"Tablero.h"
+1637363075 
+	<iostream>
+	<stdlib.h>
+	<conio.h>
+	"Jugador.h"
 	"Menu.h"
 
 1637247860 c:\users\usuario\git\snake\funcion.h
 
-1637395371 source:c:\users\usuario\git\snake\tablero.cpp
+1637584371 source:c:\users\usuario\git\snake\tablero.cpp
 	"Tablero.h"
 
-1637363075 source:c:\users\usuario\git\snake\menu.cpp
-	"Menu.h"
+1637376745 "
 

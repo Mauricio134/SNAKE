@@ -4,14 +4,13 @@
 using namespace std;
 
 int main() {
-    Menu menu;
+    Menu menu;                             //Creación de objeto menu para uso de metodos de clase
     while(menu.CERRAR() == true){
         while(menu.LOSE() == true){
             menu.menu_init();
         }
         system("cls");
         Tablero tablero;
-        tablero.inicio();
         while(tablero.LOSE() == true){
             tablero.tablero();
             tablero.jugador2.Cola();
@@ -20,7 +19,7 @@ int main() {
             tablero.delay();
         }
         while(menu.LOSE() == false){
-            menu.menu_final();
+            menu.menu_final(tablero.arr, tablero.cha, tablero.chb);
         }
     }
 	return 0;
