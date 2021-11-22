@@ -30,6 +30,11 @@ Tablero::Tablero()           //Constructor de clase
     }
 }
 
+Tablero::~Tablero(){
+    delete [] pantalla;
+    delete [] obs;
+}
+
 void Tablero::obstaculo(){
     obs=new int*[nFilas];              // Uso de punteros con obs para poder almacenar los obstaculos
     for(int i=0;i<nFilas;i++){
@@ -90,7 +95,6 @@ void Tablero::obstaculo(){
         }
 
     }
-    delete [] obs;
 }
 
 void Tablero::inicio()
@@ -183,7 +187,6 @@ void Tablero::tablero()
 		}
 	}
 	cout << endl;
-	delete [] pantalla;
 }
 
 void Tablero::posicion()  // movimiento de snake al presionar las teclas

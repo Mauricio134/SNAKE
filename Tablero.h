@@ -26,6 +26,8 @@ class Tablero{
 
         Tablero();
 
+        ~Tablero();
+
         void tablero();    // Metodo para imprimir tablero y obstaculos
         void inicio();     // se da valores a los atributos x , y de ambas snakes  y se inicializa array
         void posicion();   // Metodo encargado del movimiento del snake a travez de los atributos de cada una
